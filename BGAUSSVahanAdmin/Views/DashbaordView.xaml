@@ -2,184 +2,199 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BGAUSSVahanAdmin.Views.DashboardView"
-             BackgroundColor="#E9EEF5"
-             Padding="20">
+             BackgroundColor="#E9EEF5">
 
-    <ScrollView>
-        <VerticalStackLayout Spacing="25">
+    <Grid>
 
-            <!-- ================= HEADER ================= -->
-            <VerticalStackLayout Spacing="5">
-                <Label Text="Admin Dashboard"
-                       FontSize="28"
-                       FontAttributes="Bold"
-                       TextColor="#1F2937"/>
+        <!-- MAIN CONTENT -->
+        <ScrollView>
 
-                <Label Text="Manage users, roles, and system access"
-                       FontSize="16"
-                       TextColor="#6B7280"/>
-            </VerticalStackLayout>
+            <VerticalStackLayout Padding="20,30"
+                                 Spacing="25">
 
-            <!-- ================= STAT CARDS ================= -->
-            <Grid ColumnDefinitions="*,*"
-                  RowDefinitions="Auto,Auto"
-                  ColumnSpacing="15"
-                  RowSpacing="15">
+                <!-- HEADER -->
+                <Grid ColumnDefinitions="Auto,*">
 
-                <!-- Total Users -->
-                <Frame Grid.Row="0" Grid.Column="0"
-                       CornerRadius="15"
-                       Padding="20"
-                       BackgroundColor="White"
-                       HasShadow="True">
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="Total Users"
-                               FontSize="14"
-                               TextColor="#6B7280"/>
-                        <Label Text="32"
+                    <Button Text="☰"
+                            FontSize="22"
+                            BackgroundColor="Transparent"
+                            Clicked="OnToggleSidebar"/>
+
+                    <VerticalStackLayout Grid.Column="1">
+
+                        <Label Text="Admin Dashboard"
                                FontSize="26"
                                FontAttributes="Bold"
-                               TextColor="#111827"/>
-                    </VerticalStackLayout>
-                </Frame>
+                               TextColor="#1F2937"/>
 
-                <!-- Active Users -->
-                <Frame Grid.Row="0" Grid.Column="1"
-                       CornerRadius="15"
-                       Padding="20"
-                       BackgroundColor="White"
-                       HasShadow="True">
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="Active Users"
+                        <Label Text="Manage users, roles, and system access"
                                FontSize="14"
                                TextColor="#6B7280"/>
-                        <Label Text="32"
-                               FontSize="26"
-                               FontAttributes="Bold"
-                               TextColor="#111827"/>
+
                     </VerticalStackLayout>
-                </Frame>
 
-                <!-- Admin Users -->
-                <Frame Grid.Row="1" Grid.Column="0"
-                       CornerRadius="15"
-                       Padding="20"
-                       BackgroundColor="White"
-                       HasShadow="True">
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="Admin Users"
-                               FontSize="14"
-                               TextColor="#6B7280"/>
-                        <Label Text="3"
-                               FontSize="26"
-                               FontAttributes="Bold"
-                               TextColor="#111827"/>
-                    </VerticalStackLayout>
-                </Frame>
+                </Grid>
 
-                <!-- Region Users -->
-                <Frame Grid.Row="1" Grid.Column="1"
-                       CornerRadius="15"
-                       Padding="20"
-                       BackgroundColor="White"
-                       HasShadow="True">
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="Region Users"
-                               FontSize="14"
-                               TextColor="#6B7280"/>
-                        <Label Text="29"
-                               FontSize="26"
-                               FontAttributes="Bold"
-                               TextColor="#111827"/>
-                    </VerticalStackLayout>
-                </Frame>
+                <!-- STAT CARDS -->
+                <Grid ColumnSpacing="15"
+                      RowSpacing="15"
+                      ColumnDefinitions="*,*"
+                      RowDefinitions="Auto,Auto">
 
-            </Grid>
+                    <!-- Card Template -->
+                    <Border BackgroundColor="White" Padding="18">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
 
-            <!-- ================= USER MANAGEMENT ================= -->
-            <Frame CornerRadius="15"
-                   Padding="20"
-                   BackgroundColor="White"
-                   HasShadow="True">
+                        <VerticalStackLayout>
+                            <Label Text="Total Users"
+                                   FontSize="14"
+                                   TextColor="#6B7280"/>
+                            <Label Text="32"
+                                   FontSize="28"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Border>
 
-                <VerticalStackLayout Spacing="15">
+                    <Border Grid.Column="1"
+                            BackgroundColor="White"
+                            Padding="18">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
 
-                    <Grid ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout>
+                            <Label Text="Active Users"
+                                   FontSize="14"
+                                   TextColor="#6B7280"/>
+                            <Label Text="32"
+                                   FontSize="28"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="1"
+                            BackgroundColor="White"
+                            Padding="18">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+
+                        <VerticalStackLayout>
+                            <Label Text="Admin Users"
+                                   FontSize="14"
+                                   TextColor="#6B7280"/>
+                            <Label Text="3"
+                                   FontSize="28"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="1"
+                            Grid.Column="1"
+                            BackgroundColor="White"
+                            Padding="18">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="16"/>
+                        </Border.StrokeShape>
+
+                        <VerticalStackLayout>
+                            <Label Text="Region Users"
+                                   FontSize="14"
+                                   TextColor="#6B7280"/>
+                            <Label Text="29"
+                                   FontSize="28"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    
+                </Grid>
+                <!-- USER MANAGEMENT -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="20">
+
+                    <VerticalStackLayout Spacing="15">
+
                         <Label Text="User Management"
                                FontSize="20"
-                               FontAttributes="Bold"
-                               TextColor="#111827"/>
+                               FontAttributes="Bold"/>
 
-                        <Button Text="Manage Users"
-                                Grid.Column="1"
-                                BackgroundColor="#3B82F6"
-                                TextColor="White"
-                                CornerRadius="10"
-                                Padding="15,8"/>
-                    </Grid>
-
-                    <Label Text="Create, edit, and manage user accounts and their access permissions."
-                           FontSize="14"
-                           TextColor="#4B5563"/>
-
-                    <Grid ColumnDefinitions="*,Auto">
-                        <Label Text="All India Access:"
+                        <Label Text="Create, edit, and manage user accounts and their access permissions."
                                FontSize="14"
-                               TextColor="#4B5563"/>
-                        <Label Text="3 users"
-                               Grid.Column="1"
-                               FontSize="14"
-                               FontAttributes="Bold"
-                               TextColor="#111827"/>
-                    </Grid>
+                               TextColor="#6B7280"/>
 
-                    <Grid ColumnDefinitions="*,Auto">
-                        <Label Text="Regional Access:"
-                               FontSize="14"
-                               TextColor="#4B5563"/>
-                        <Label Text="29 users"
-                               Grid.Column="1"
-                               FontSize="14"
-                               FontAttributes="Bold"
-                               TextColor="#111827"/>
-                    </Grid>
+                    </VerticalStackLayout>
 
-                </VerticalStackLayout>
-            </Frame>
+                </Frame>
 
-            <!-- ================= ACCESS CONTROL ================= -->
-            <Frame CornerRadius="15"
-                   Padding="20"
-                   BackgroundColor="White"
-                   HasShadow="True">
+                <!-- ACCESS CONTROL -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="18"
+                       Padding="20">
 
-                <VerticalStackLayout Spacing="12">
+                    <VerticalStackLayout Spacing="12">
 
-                    <Label Text="Access Control"
-                           FontSize="20"
-                           FontAttributes="Bold"
-                           TextColor="#111827"/>
+                        <Label Text="Access Control"
+                               FontSize="20"
+                               FontAttributes="Bold"/>
 
-                    <Label Text="Configure user roles and regional access permissions."
-                           FontSize="14"
-                           TextColor="#4B5563"/>
+                        <Label Text="• All India Data Access"/>
+                        <Label Text="• North Region Access"/>
+                        <Label Text="• South Region Access"/>
+                        <Label Text="• East Region Access"/>
+                        <Label Text="• West Region Access"/>
 
-                    <Label Text="• All India Data Access"
-                           TextColor="#2563EB"/>
+                    </VerticalStackLayout>
 
-                    <Label Text="• North Region Access"
-                           TextColor="#16A34A"/>
+                </Frame>
+            </VerticalStackLayout>
 
-                    <Label Text="• South Region Access"
-                           TextColor="#D97706"/>
+        </ScrollView>
 
-                    <Label Text="• West Access"
-                           TextColor="#9333EA"/>
+        <!-- OVERLAY -->
+        <BoxView x:Name="Overlay"
+                 BackgroundColor="#80000000"
+                 IsVisible="False">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnToggleSidebar"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
 
-                </VerticalStackLayout>
-            </Frame>
+        <!-- SIDEBAR -->
+        <Grid x:Name="Sidebar"
+              BackgroundColor="#1F2937"
+              WidthRequest="260"
+              HorizontalOptions="Start"
+              IsVisible="False">
 
-        </VerticalStackLayout>
-    </ScrollView>
+            <VerticalStackLayout Padding="25,60"
+                                 Spacing="25">
+
+                <Label Text="BGAUSS Admin"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="White"/>
+
+                <Label Text="Dashboard" TextColor="White"/>
+                <Label Text="Manage Users" TextColor="White"/>
+                <Label Text="Access Control" TextColor="White"/>
+
+                <BoxView HeightRequest="1"
+                         BackgroundColor="#374151"/>
+
+                <Label Text="Logout"
+                       TextColor="Red">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLogoutClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
 
 </ContentPage>
