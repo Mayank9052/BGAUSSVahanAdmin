@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="BGAUSSVahanAdmin/BGAUSSVahanAdmin.csproj" />
+  <Project Path="BGAUSSVahanAdmin/BGAUSSVahanAdmin.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>

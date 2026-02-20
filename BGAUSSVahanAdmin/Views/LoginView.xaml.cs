@@ -9,7 +9,6 @@ public partial class LoginView : ContentPage
 
     private async void OnLoginClicked(object sender, EventArgs e)
     {
-        // Later you can add authentication logic here
 
         await Navigation.PushAsync(new DashboardView());
     }

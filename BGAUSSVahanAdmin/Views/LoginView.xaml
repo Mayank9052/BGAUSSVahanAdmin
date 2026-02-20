@@ -3,117 +3,116 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BGAUSSVahanAdmin.Views.LoginView"
              BackgroundColor="Black"
-             Padding="0">
+             Shell.NavBarIsVisible="False">
 
     <Grid>
 
-        <!-- ================= BACKGROUND TEXTURE ================= -->
+        <!-- Background -->
         <Image Source="texture.png"
                Aspect="AspectFill"
-               Opacity="1" />
+               Opacity="0.9" />
 
-        <!-- ================= MAIN CONTENT ================= -->
-        <ScrollView>
+        <!-- Safe Area Layout -->
+        <Grid Padding="20"
+              RowDefinitions="Auto,*,Auto">
 
-            <VerticalStackLayout Padding="30,130,30,40"
-                                 Spacing="40">
+            <!-- ================= HEADER ================= -->
+            <VerticalStackLayout
+                Grid.Row="0"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Spacing="6"
+                Margin="0,40,0,20">
 
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     Spacing="8">
+                <Image Source="logo.jpg"
+                       HeightRequest="100"
+                       Aspect="AspectFit" />
 
-                    <Image Source="logo.jpg"
-                           HeightRequest="120"
-                           Aspect="AspectFit" />
+                <Label Text="BGAUSS"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"/>
 
-                    <Label Text="BGAUSS"
-                           FontSize="28"
-                           FontAttributes="Bold"
-                           TextColor="White"
-                           HorizontalTextAlignment="Center"/>
-
-                    <Label Text="Electric Mobility Management"
-                           FontSize="13"
-                           TextColor="#AAAAAA"
-                           HorizontalTextAlignment="Center"/>
-
-                </VerticalStackLayout>
-
-                <!-- ===== LOGIN CARD ===== -->
-                <Frame CornerRadius="32"
-                       Padding="28"
-                       BackgroundColor="#151517"
-                       HasShadow="True">
-
-                    <Frame.Shadow>
-                        <Shadow Brush="#FF6A00"
-                                Radius="35"
-                                Opacity="0.7"
-                                Offset="0,0"/>
-                    </Frame.Shadow>
-
-                    <VerticalStackLayout Spacing="22">
-
-                        <Label Text="Welcome Back"
-                               FontSize="24"
-                               FontAttributes="Bold"
-                               TextColor="White"/>
-
-                        <!-- EMAIL -->
-                        <Border Stroke="#2C2C30"
-                                BackgroundColor="#1F1F22"
-                                StrokeShape="RoundRectangle 20"
-                                Padding="18,8">
-
-                            <Entry Placeholder="Email"
-                                   PlaceholderColor="#777777"
-                                   TextColor="White"
-                                   BackgroundColor="Transparent"/>
-                        </Border>
-
-                        <Border Stroke="#2C2C30"
-                                BackgroundColor="#1F1F22"
-                                StrokeShape="RoundRectangle 20"
-                                Padding="18,8">
-
-                            <Entry Placeholder="Password"
-                                   IsPassword="True"
-                                   PlaceholderColor="#777777"
-                                   TextColor="White"
-                                   BackgroundColor="Transparent"/>
-                        </Border>
-
-                        <!-- LOGIN BUTTON -->
-                        <Button Text="Login"
-                                Clicked="OnLoginClicked"
-                                HeightRequest="60"
-                                CornerRadius="35"
-                                FontAttributes="Bold"
-                                TextColor="White"
-                                Margin="0,10,0,0">
-
-                            <Button.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="#FF5E00" Offset="0"/>
-                                    <GradientStop Color="#FFA23A" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Button.Background>
-
-                        </Button>
-
-                        <!-- FOOTER -->
-                        <Label Text="© BGAUSS Auto India Pvt. Ltd."
-                               FontSize="12"
-                               TextColor="#666666"
-                               HorizontalTextAlignment="Center"
-                               Margin="0,15,0,0"/>
-
-                    </VerticalStackLayout>
-
-                </Frame>
-
+                <Label Text="Electric Mobility Management"
+                       FontSize="13"
+                       TextColor="#AAAAAA"
+                       HorizontalTextAlignment="Center"/>
             </VerticalStackLayout>
 
-        </ScrollView>
+
+            <!-- ================= LOGIN CARD ================= -->
+            <Border Grid.Row="1"
+                    StrokeThickness="0"
+                    BackgroundColor="#151517"
+                    StrokeShape="RoundRectangle 30"
+                    Padding="25"
+                    VerticalOptions="Center">
+
+                <VerticalStackLayout Spacing="20">
+
+                    <Label Text="Welcome Back"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+
+                    <!-- EMAIL -->
+                    <Border Stroke="#2C2C30"
+                            BackgroundColor="#1F1F22"
+                            StrokeShape="RoundRectangle 20"
+                            Padding="18,8">
+
+                        <Entry Placeholder="Email"
+                               PlaceholderColor="#777777"
+                               TextColor="White"
+                               BackgroundColor="Transparent"/>
+                    </Border>
+
+                    <!-- PASSWORD -->
+                    <Border Stroke="#2C2C30"
+                            BackgroundColor="#1F1F22"
+                            StrokeShape="RoundRectangle 20"
+                            Padding="18,8">
+
+                        <Entry Placeholder="Password"
+                               IsPassword="True"
+                               PlaceholderColor="#777777"
+                               TextColor="White"
+                               BackgroundColor="Transparent"/>
+                    </Border>
+
+                    <!-- LOGIN BUTTON -->
+                    <Button Text="Login"
+                            Clicked="OnLoginClicked"
+                            HeightRequest="55"
+                            CornerRadius="30"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            Margin="0,10,0,0">
+
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0"
+                                                 EndPoint="1,0">
+                                <GradientStop Color="#FF5E00"
+                                              Offset="0"/>
+                                <GradientStop Color="#FFA23A"
+                                              Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                </VerticalStackLayout>
+            </Border>
+
+
+            <!-- ================= FOOTER ================= -->
+            <Label Grid.Row="2"
+                   Text="© BGAUSS Auto India Pvt. Ltd."
+                   FontSize="12"
+                   TextColor="#666666"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,20"/>
+        </Grid>
 
     </Grid>
 
