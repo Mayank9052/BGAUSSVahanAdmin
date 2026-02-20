@@ -14,27 +14,28 @@ public partial class LoginView : ContentPage
     {
         try
         {
+            if (MauiProgram.PCA == null)
+            {
+                await DisplayAlert("Error", "Authentication not initialized.", "OK");
+                return;
+            }
+
             var scopes = new[] { "User.Read" };
 
-            var result = await MauiProgram.PCA.AcquireTokenInteractive(scopes)
+            var result = await MauiProgram.PCA
+                .AcquireTokenInteractive(scopes)
 #if ANDROID
-                              .WithParentActivityOrWindow(Platform.CurrentActivity)
+                .WithParentActivityOrWindow(Platform.CurrentActivity)
 #endif
-                              .ExecuteAsync();
+                .ExecuteAsync();
 
             await DisplayAlert("Success", $"Welcome {result.Account.Username}", "OK");
 
-            // Navigate using Shell
-            // Navigate on UI thread
-            await MainThread.InvokeOnMainThreadAsync(async () =>
-            {
-                // Absolute route (resets navigation stack)
-                await Shell.Current.GoToAsync($"//{nameof(DashboardView)}");
-            });
+            await Shell.Current.GoToAsync(nameof(DashboardView));
         }
-        catch (MsalException msalEx)
+        catch (Exception ex)
         {
-            await DisplayAlert("Error", msalEx.Message, "OK");
+            await DisplayAlert("Error", ex.Message, "OK");
         }
     }
 }

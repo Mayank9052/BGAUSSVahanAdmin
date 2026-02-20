@@ -5,7 +5,8 @@ namespace BGAUSSVahanAdmin;
 
 public static class MauiProgram
 {
-    public static IPublicClientApplication PCA;
+    //public static IPublicClientApplication PCA;
+    public static IPublicClientApplication PCA { get; private set; }
 
     public static MauiApp CreateMauiApp()
     {
@@ -22,11 +23,13 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
-        // Initialize MSAL client
+        // ✅ Initialize MSAL client with Tenant-specific authority
         PCA = PublicClientApplicationBuilder
-            .Create("30c02e55-3684-45cf-b5f7-65d4251e12d2")  // from Azure AD
-            .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient") // redirect URI
-            .Build();
+                .Create("30c02e55-3684-45cf-b5f7-65d4251e12d2")
+                .WithAuthority(AzureCloudInstance.AzurePublic,
+                               "a265301a-63b1-4aec-9d47-273b49c178b4")
+                .WithRedirectUri("http://localhost")
+                .Build();
 
         return builder.Build();
     }
