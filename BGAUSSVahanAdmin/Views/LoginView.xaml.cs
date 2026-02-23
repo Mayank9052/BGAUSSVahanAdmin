@@ -1,5 +1,4 @@
 using Microsoft.Identity.Client;
-using Microsoft.Maui.ApplicationModel;
 
 namespace BGAUSSVahanAdmin.Views;
 
@@ -22,14 +21,18 @@ public partial class LoginView : ContentPage
 
             var scopes = new[] { "User.Read" };
 
+#if ANDROID
+            var parentWindow = Microsoft.Maui.ApplicationModel.Platform.CurrentActivity;
+#endif
+
             var result = await MauiProgram.PCA
                 .AcquireTokenInteractive(scopes)
 #if ANDROID
-                .WithParentActivityOrWindow(Platform.CurrentActivity)
+                .WithParentActivityOrWindow(parentWindow)
 #endif
                 .ExecuteAsync();
 
-            await DisplayAlert("Success", $"Welcome {result.Account.Username}", "OK");
+            //await DisplayAlert("Success", $"Welcome {result.Account.Username}", "OK");
 
             await Shell.Current.GoToAsync(nameof(DashboardView));
         }

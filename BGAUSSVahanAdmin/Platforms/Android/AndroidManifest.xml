@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+		  package="com.companyname.bgaussvahanadmin">
 
 	<!-- Permissions -->
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,14 +13,18 @@
 		android:supportsRtl="true">
 
 		<!-- MSAL redirect intent filter -->
-		<activity  android:name="microsoft.identity.client.BrowserTabActivity" android:exported="true">
+		<activity
+    android:name="microsoft.identity.client.BrowserTabActivity"
+    android:exported="true">
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
+
 				<data
-					android:scheme="30c02e55-3684-45cf-b5f7-65d4251e12d2"
-					android:host="auth" />
+					android:scheme="msauth"
+					android:host="com.companyname.bgaussvahanadmin"
+					android:path="/RkPW28YqMFq30noUKxVIWoAox9w=" />
 			</intent-filter>
 		</activity>
 

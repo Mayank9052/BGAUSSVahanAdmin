@@ -25,11 +25,10 @@ public static class MauiProgram
 
         // ✅ Initialize MSAL client with Tenant-specific authority
         PCA = PublicClientApplicationBuilder
-                .Create("30c02e55-3684-45cf-b5f7-65d4251e12d2")
-                .WithAuthority(AzureCloudInstance.AzurePublic,
-                               "a265301a-63b1-4aec-9d47-273b49c178b4")
-                .WithRedirectUri("http://localhost")
-                .Build();
+    .Create("30c02e55-3684-45cf-b5f7-65d4251e12d2")
+    .WithAuthority("https://login.microsoftonline.com/a265301a-63b1-4aec-9d47-273b49c178b4")
+    .WithRedirectUri("msauth://com.companyname.bgaussvahanadmin/RkPW28YqMFq30noUKxVIWoAox9w%3D")
+    .Build();
 
         return builder.Build();
     }
