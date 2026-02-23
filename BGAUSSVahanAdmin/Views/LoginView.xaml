@@ -10,7 +10,9 @@
         <!-- Background -->
         <Image Source="texture.png"
                Aspect="AspectFill"
-               Opacity="0.9" />
+               Opacity="0.9"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
 
         <!-- Safe Area Layout -->
         <Grid Padding="20"

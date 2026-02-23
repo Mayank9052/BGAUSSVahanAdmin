@@ -24,9 +24,9 @@ public partial class LoginView : ContentPage
                 .WithPrompt(Prompt.SelectAccount)
                 .ExecuteAsync();
 
-            await DisplayAlert("Success",
-                $"Welcome {result.Account.Username}",
-                "OK");
+            //await DisplayAlert("Success",
+            //    $"Welcome {result.Account.Username}",
+            //    "OK");
 
             await Shell.Current.GoToAsync(nameof(DashboardView));
         }
