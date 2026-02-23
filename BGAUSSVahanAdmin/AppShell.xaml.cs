@@ -10,6 +10,8 @@ namespace BGAUSSVahanAdmin
 
             // Register Dashboard route
             Routing.RegisterRoute(nameof(DashboardView), typeof(DashboardView));
+            Routing.RegisterRoute(nameof(ECatalogView), typeof(ECatalogView));
+
         }
     }
 }

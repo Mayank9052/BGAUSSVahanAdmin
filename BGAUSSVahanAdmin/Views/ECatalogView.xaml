@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BGAUSSVahanAdmin.Views.ECatalogView"
+             Title="E-Catalog"
+             BackgroundColor="#F4F6F9">
+
+    <VerticalStackLayout Padding="20,40"
+                         Spacing="20">
+
+        <Label Text="Electronic Parts Catalog"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="#111827"/>
+
+        <Label Text="Search and manage vehicle spare parts here."
+               FontSize="14"
+               TextColor="#6B7280"/>
+
+        <!-- Sample Placeholder -->
+        <Border BackgroundColor="White"
+                Padding="20"
+                Stroke="#E5E7EB"
+                StrokeShape="RoundRectangle 20">
+
+            <Label Text="E-Catalog Content Area"
+                   TextColor="#111827"/>
+        </Border>
+
+    </VerticalStackLayout>
+
+</ContentPage>
