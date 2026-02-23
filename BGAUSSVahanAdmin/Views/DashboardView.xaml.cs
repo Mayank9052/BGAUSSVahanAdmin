@@ -31,6 +31,6 @@ public partial class DashboardView : ContentPage
 
     private async void OnLogoutClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//LoginView");
+        await Shell.Current.GoToAsync(nameof(LoginView));
     }
 }
