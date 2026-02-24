@@ -10,4 +10,8 @@
         Title="Login"
         ContentTemplate="{DataTemplate views:LoginView}" />
 
+    <ShellContent
+        Route="DashboardView"
+        ContentTemplate="{DataTemplate views:DashboardView}" />
+
 </Shell>

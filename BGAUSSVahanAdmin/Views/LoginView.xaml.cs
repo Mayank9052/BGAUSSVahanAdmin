@@ -28,7 +28,7 @@ public partial class LoginView : ContentPage
             //    $"Welcome {result.Account.Username}",
             //    "OK");
 
-            await Shell.Current.GoToAsync(nameof(DashboardView));
+            await Shell.Current.GoToAsync("//DashboardView");
         }
         catch (Exception ex)
         {
