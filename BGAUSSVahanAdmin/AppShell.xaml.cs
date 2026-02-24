@@ -8,10 +8,9 @@ namespace BGAUSSVahanAdmin
         {
             InitializeComponent();
 
-            // Register Dashboard route
+            Routing.RegisterRoute(nameof(LoginView), typeof(LoginView));
             Routing.RegisterRoute(nameof(DashboardView), typeof(DashboardView));
             Routing.RegisterRoute(nameof(ECatalogView), typeof(ECatalogView));
-
         }
     }
 }
